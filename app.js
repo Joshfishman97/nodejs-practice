@@ -1,10 +1,12 @@
-const fs = require('fs')
+//CLASS DEFINES BEHAVIORS
+const EventEmitter = require('events')
+//OBJECT Instance of Class
+const emitter = new EventEmitter ()
 
-// const files = fs.readdirSync('./')
-// console.log(files);
-
-
-fs.readdir('$',function(err,files){
-    if(err) console.log('Error', err);
-    else console.log('Result', files)
+//Register a listener
+emitter.on('messageLogged',function(){
+    console.log('Listener Called');
 })
+
+//Raise an Event
+emitter.emit('messageLogged');
