@@ -1,14 +1,11 @@
 //CLASS DEFINES BEHAVIORS
-const EventEmitter = require("events");;
-//OBJECT Instance of Class
-const emitter = new EventEmitter();
+const EventEmitter = require("events");
 
-//Register a listener
-emitter.on("messageLogged", (e) => {
+const Logger = require("./logger");
+const logger = new Logger();
+
+logger.on("messageLogged", (e) => {
   console.log("Listener Called", e);
 });
 
-const log = require('./logger')
-log('message')
-
-  
+logger.log("message");
